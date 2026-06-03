@@ -1,0 +1,7 @@
+_idx/
+_site/
+features/
+releases/
+adr/
+benchmarks/
+.bundle/
