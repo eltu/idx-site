@@ -887,8 +887,21 @@ pre code .comment { color: var(--muted); }
 
 
 /* ============================================================
-   Sidebar — latest badge
+   Sidebar — latest badge + removed items
    ============================================================ */
+
+.nav-removed > a {
+  opacity: 0.45;
+}
+
+.nav-removed-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-left: auto;
+}
 
 .sidebar-latest {
   font-size: 0.65rem;

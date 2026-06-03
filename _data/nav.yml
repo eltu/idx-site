@@ -1,0 +1,35 @@
+commands:
+  - name: init
+    icon: "⚡"
+  - name: sync
+    icon: "🔄"
+  - name: status
+    icon: "📊"
+  - name: search
+    icon: "🔍"
+  - name: read
+    icon: "📖"
+  - name: inspect
+    icon: "🔬"
+  - name: destroy
+    icon: "🗑"
+  - name: version
+    icon: "🏷"
+  - name: skills
+    icon: "🤖"
+  - name: server
+    icon: "🖥"
+  - name: config
+    icon: "🗂"
+
+reference:
+  - name: errors
+    icon: "⚠️"
+
+removed:
+  - name: watch
+    icon: "👁"
+    note: "removed"
+  - name: daemon
+    icon: "⚙️"
+    note: "removed in v0.5.0"
