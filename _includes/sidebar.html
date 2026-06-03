@@ -22,7 +22,7 @@
     <div class="sidebar-label">Releases</div>
     <ul class="sidebar-nav">
       <li><a href="/releases"><span class="nav-icon">📦</span> all releases</a></li>
-      {% assign release_pages = site.pages | where_exp: "p", "p.path contains 'releases/' and p.name != 'index.md'" | sort: "name" | reverse %}
+      {% assign release_pages = site.pages | where_exp: "p", "p.dir == '/releases/'" | where_exp: "p", "p.name != 'index.md'" | sort: "name" | reverse %}
       {% for p in release_pages limit: 3 %}
       <li><a href="{{ p.url }}"><span class="nav-icon">·</span> {{ p.name | remove: ".md" }}{% if forloop.first %} <span class="sidebar-latest">latest</span>{% endif %}</a></li>
       {% endfor %}
