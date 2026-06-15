@@ -16,16 +16,16 @@ layout: landing
     <span class="pill">No network calls</span>
     <span class="pill">AND / OR queries</span>
     <span class="pill">Path &amp; ext filters</span>
-    <span class="pill">Daemon sync</span>
+    <span class="pill">Background agent</span>
   </div>
 
   <div class="hero-actions">
-    <a href="https://github.com/eltu/idx/releases" class="btn-primary" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Install
+    <a href="#quickstart" class="btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Get started
     </a>
-    <a href="/features/search" class="btn-secondary">
-      Read the docs
+    <a href="https://github.com/eltu/idx" class="btn-secondary" target="_blank" rel="noopener">
+      GitHub
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
@@ -81,19 +81,19 @@ layout: landing
     <div class="feature-card">
       <div class="feature-icon">🔬</div>
       <h3>Precision filters</h3>
-      <p>Narrow by extension (<code>--ext go</code>) or path (<code>--path internal/core</code>). AND / OR with relaxation fallback.</p>
+      <p>Narrow by extension (<code>-e go</code>) or path (<code>-p internal/core</code>). AND / OR with relaxation fallback.</p>
     </div>
 
     <div class="feature-card">
       <div class="feature-icon">🔄</div>
       <h3>Always in sync</h3>
-      <p>File saved? Index updated. The background daemon tracks every change — no manual syncs during development.</p>
+      <p>File saved? Index updated. The background agent tracks every change — no manual syncs during development.</p>
     </div>
 
     <div class="feature-card">
       <div class="feature-icon">📖</div>
       <h3>Read-aware ranking</h3>
-      <p>Files you open frequently get a ranking boost in future searches — the index learns your workflow.</p>
+      <p>Files you open with <code>idx read</code> get a ranking boost in future searches — the index learns your workflow.</p>
     </div>
   </div>
 </section>
@@ -101,7 +101,7 @@ layout: landing
 <!-- ===== QUICK START ===== -->
 <section class="section" id="quickstart">
   <div class="section-label">Quick start</div>
-  <h2 class="section-title">Up and running in minutes</h2>
+  <h2 class="section-title">Up and running in 3 commands</h2>
   <p class="section-sub">Requires a Git repository. No build tools needed.</p>
 
   <div class="quickstart-wrap">
@@ -116,19 +116,12 @@ layout: landing
       <div class="qs-step">
         <div class="qs-num">2</div>
         <div class="qs-step-body">
-          <h4>Index your project</h4>
-          <p>Run once per project. Builds the BM25 index for every directory.</p>
+          <h4>Start the background agent</h4>
+          <p>Starts the agent and auto-indexes your project if no index exists yet.</p>
         </div>
       </div>
       <div class="qs-step">
         <div class="qs-num">3</div>
-        <div class="qs-step-body">
-          <h4>Enable background sync</h4>
-          <p>Start once. The daemon keeps the index current with every file save.</p>
-        </div>
-      </div>
-      <div class="qs-step">
-        <div class="qs-num">4</div>
         <div class="qs-step-body">
           <h4>Search</h4>
           <p>AND / OR logic, path and extension filters, results ranked by relevance.</p>
@@ -148,16 +141,12 @@ layout: landing
           <span class="t-line"><span class="t-muted"># 1. install</span></span>
           <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">brew tap eltu/idx &amp;&amp; brew install idx</span></span>
           <span class="t-line">&nbsp;</span>
-          <span class="t-line"><span class="t-muted"># 2. index your project</span></span>
-          <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx init</span></span>
-          <span class="t-line"><span class="t-muted">  ✓ indexed 847 files in 312ms</span></span>
+          <span class="t-line"><span class="t-muted"># 2. start the agent (auto-indexes on first run)</span></span>
+          <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx agent start</span></span>
+          <span class="t-line"><span class="t-muted">  ✅ Agent running (PID: 48291, uptime: 0s)</span></span>
           <span class="t-line">&nbsp;</span>
-          <span class="t-line"><span class="t-muted"># 3. enable background sync</span></span>
-          <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx daemon enable</span> <span class="t-arg">.</span></span>
-          <span class="t-line"><span class="t-muted">  ✓ daemon started (pid 48291)</span></span>
-          <span class="t-line">&nbsp;</span>
-          <span class="t-line"><span class="t-muted"># 4. search</span></span>
-          <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx search</span> <span class="t-arg">"rate limit"</span> <span class="t-cmd">--ext</span> <span class="t-arg">go</span></span>
+          <span class="t-line"><span class="t-muted"># 3. search</span></span>
+          <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx search</span> <span class="t-arg">"rate limit"</span> <span class="t-cmd">-e</span> <span class="t-arg">go</span></span>
           <span class="t-line"><span class="t-path">internal/core/services/search/limiter.go</span>  <span class="t-score">0.97</span></span>
         </div>
       </div>
@@ -167,6 +156,42 @@ layout: landing
           Full command reference →
         </a>
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEARCH EXAMPLES ===== -->
+<section class="section" id="examples">
+  <div class="section-label">Search examples</div>
+  <h2 class="section-title">Powerful queries, simple syntax</h2>
+  <p class="section-sub">From basic lookups to filtered, multi-term searches.</p>
+
+  <div class="hero-terminal" style="max-width: 720px; margin: 0 auto;">
+    <div class="terminal-bar">
+      <span class="terminal-dot red"></span>
+      <span class="terminal-dot amber"></span>
+      <span class="terminal-dot green"></span>
+      <span class="terminal-title">zsh — idx search examples</span>
+    </div>
+    <div class="terminal-body">
+      <span class="t-line"><span class="t-muted"># basic search</span></span>
+      <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx search</span> <span class="t-arg">"authentication middleware"</span></span>
+      <span class="t-line">&nbsp;</span>
+      <span class="t-line"><span class="t-muted"># filter by file extension</span></span>
+      <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx search</span> <span class="t-cmd">-e</span> <span class="t-arg">go</span> <span class="t-arg">"func main"</span></span>
+      <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx search</span> <span class="t-cmd">-e</span> <span class="t-arg">go</span> <span class="t-cmd">-e</span> <span class="t-arg">ts</span> <span class="t-arg">"interface"</span></span>
+      <span class="t-line">&nbsp;</span>
+      <span class="t-line"><span class="t-muted"># filter by path</span></span>
+      <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx search</span> <span class="t-cmd">-p</span> <span class="t-arg">internal</span> <span class="t-arg">"logger"</span></span>
+      <span class="t-line">&nbsp;</span>
+      <span class="t-line"><span class="t-muted"># OR mode — match any term</span></span>
+      <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx search</span> <span class="t-cmd">--any</span> <span class="t-arg">"init sync destroy"</span></span>
+      <span class="t-line">&nbsp;</span>
+      <span class="t-line"><span class="t-muted"># relaxation — match at least 2 of 3 terms</span></span>
+      <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx search</span> <span class="t-cmd">--relax</span> <span class="t-arg">2</span> <span class="t-arg">"init sync destroy"</span></span>
+      <span class="t-line">&nbsp;</span>
+      <span class="t-line"><span class="t-muted"># compact output for AI agents</span></span>
+      <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx search</span> <span class="t-cmd">--compact</span> <span class="t-arg">"BM25"</span></span>
     </div>
   </div>
 </section>
@@ -218,5 +243,33 @@ layout: landing
       <div class="editor-card-name">GitHub Copilot</div>
       <code class="editor-install">idx skills install copilot</code>
     </div>
+  </div>
+</section>
+
+<!-- ===== COMMAND REFERENCE ===== -->
+<section class="section" id="commands">
+  <div class="section-label">Command reference</div>
+  <h2 class="section-title">Everything idx can do</h2>
+  <p class="section-sub">Quick reference — full flag docs in the <a href="/features/search" style="color:var(--secondary)">feature pages</a>.</p>
+
+  <div class="cmd-table-wrap">
+    <table class="cmd-table">
+      <thead>
+        <tr><th>Command</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>idx init</code></td><td>Build the full index for the project</td></tr>
+        <tr><td><code>idx agent start</code></td><td>Start the background agent (auto-indexes if needed)</td></tr>
+        <tr><td><code>idx agent stop</code></td><td>Stop the background agent</td></tr>
+        <tr><td><code>idx agent status</code></td><td>Show agent health and PID</td></tr>
+        <tr><td><code>idx sync</code></td><td>Incrementally re-index changed directories</td></tr>
+        <tr><td><code>idx status</code></td><td>Check index freshness</td></tr>
+        <tr><td><code>idx search &lt;terms&gt;</code></td><td>Search indexed content</td></tr>
+        <tr><td><code>idx read &lt;path&gt;</code></td><td>Print a file (boosts it in future search results)</td></tr>
+        <tr><td><code>idx inspect [path]</code></td><td>Browse the index in an interactive TUI</td></tr>
+        <tr><td><code>idx config show</code></td><td>Show resolved project configuration</td></tr>
+        <tr><td><code>idx destroy</code></td><td>Remove all index files and stop the agent</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>

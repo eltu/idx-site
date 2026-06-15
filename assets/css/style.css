@@ -993,3 +993,57 @@ pre code .comment { color: var(--muted); }
   .features-grid { grid-template-columns: 1fr; }
   .ai-stat-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== Command Reference Table ===== */
+.cmd-table-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.cmd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.cmd-table thead tr {
+  border-bottom: 2px solid var(--border);
+}
+
+.cmd-table th {
+  text-align: left;
+  padding: 10px 16px;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cmd-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: middle;
+}
+
+.cmd-table td:first-child {
+  white-space: nowrap;
+}
+
+.cmd-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cmd-table tbody tr:hover td {
+  background: var(--surface2);
+}
+
+.cmd-table code {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--secondary);
+  background: none;
+  padding: 0;
+}
