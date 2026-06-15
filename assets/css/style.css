@@ -207,6 +207,8 @@ a:hover { color: var(--primary); text-decoration: underline; }
   color: var(--muted);
 }
 
+.mobile-nav { display: none; }
+
 /* ============================================================
    Shared — Footer
    ============================================================ */

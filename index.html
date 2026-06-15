@@ -257,30 +257,3 @@ layout: landing
   </div>
 </section>
 
-<!-- ===== COMMAND REFERENCE ===== -->
-<section class="section" id="commands">
-  <div class="section-label">Command reference</div>
-  <h2 class="section-title">Everything idx can do</h2>
-  <p class="section-sub">Quick reference — full flag docs in the <a href="/features/search" style="color:var(--secondary)">feature pages</a>.</p>
-
-  <div class="cmd-table-wrap">
-    <table class="cmd-table">
-      <thead>
-        <tr><th>Command</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>idx init</code></td><td>Build the full index for the project</td></tr>
-        <tr><td><code>idx agent start</code></td><td>Start the background agent (auto-indexes if needed)</td></tr>
-        <tr><td><code>idx agent stop</code></td><td>Stop the background agent</td></tr>
-        <tr><td><code>idx agent status</code></td><td>Show agent health and PID</td></tr>
-        <tr><td><code>idx sync</code></td><td>Incrementally re-index changed directories</td></tr>
-        <tr><td><code>idx status</code></td><td>Check index freshness</td></tr>
-        <tr><td><code>idx search &lt;terms&gt;</code></td><td>Search indexed content</td></tr>
-        <tr><td><code>idx read &lt;path&gt;</code></td><td>Print a file (boosts it in future search results)</td></tr>
-        <tr><td><code>idx inspect [path]</code></td><td>Browse the index in an interactive TUI</td></tr>
-        <tr><td><code>idx config show</code></td><td>Show resolved project configuration</td></tr>
-        <tr><td><code>idx destroy</code></td><td>Remove all index files and stop the agent</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
