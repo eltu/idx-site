@@ -5,3 +5,4 @@ releases/
 adr/
 benchmarks/
 .bundle/
+.idx/

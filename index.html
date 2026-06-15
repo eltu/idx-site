@@ -101,7 +101,7 @@ layout: landing
 <!-- ===== QUICK START ===== -->
 <section class="section" id="quickstart">
   <div class="section-label">Quick start</div>
-  <h2 class="section-title">Up and running in 3 commands</h2>
+  <h2 class="section-title">Up and running in 4 commands</h2>
   <p class="section-sub">Requires a Git repository. No build tools needed.</p>
 
   <div class="quickstart-wrap">
@@ -116,12 +116,19 @@ layout: landing
       <div class="qs-step">
         <div class="qs-num">2</div>
         <div class="qs-step-body">
-          <h4>Start the background agent</h4>
-          <p>Starts the agent and auto-indexes your project if no index exists yet.</p>
+          <h4>Build the index</h4>
+          <p>Scans and indexes the full project once so searches are ready to go.</p>
         </div>
       </div>
       <div class="qs-step">
         <div class="qs-num">3</div>
+        <div class="qs-step-body">
+          <h4>Start the background agent</h4>
+          <p>Keeps the index in sync as you edit files.</p>
+        </div>
+      </div>
+      <div class="qs-step">
+        <div class="qs-num">4</div>
         <div class="qs-step-body">
           <h4>Search</h4>
           <p>AND / OR logic, path and extension filters, results ranked by relevance.</p>
@@ -141,11 +148,15 @@ layout: landing
           <span class="t-line"><span class="t-muted"># 1. install</span></span>
           <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">brew tap eltu/idx &amp;&amp; brew install idx</span></span>
           <span class="t-line">&nbsp;</span>
-          <span class="t-line"><span class="t-muted"># 2. start the agent (auto-indexes on first run)</span></span>
+          <span class="t-line"><span class="t-muted"># 2. build the index</span></span>
+          <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx init</span></span>
+          <span class="t-line"><span class="t-muted">  ✅ Indexed 1 243 files in 0.8s</span></span>
+          <span class="t-line">&nbsp;</span>
+          <span class="t-line"><span class="t-muted"># 3. start the agent (keeps index in sync)</span></span>
           <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx agent start</span></span>
           <span class="t-line"><span class="t-muted">  ✅ Agent running (PID: 48291, uptime: 0s)</span></span>
           <span class="t-line">&nbsp;</span>
-          <span class="t-line"><span class="t-muted"># 3. search</span></span>
+          <span class="t-line"><span class="t-muted"># 4. search</span></span>
           <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">idx search</span> <span class="t-arg">"rate limit"</span> <span class="t-cmd">-e</span> <span class="t-arg">go</span></span>
           <span class="t-line"><span class="t-path">internal/core/services/search/limiter.go</span>  <span class="t-score">0.97</span></span>
         </div>
