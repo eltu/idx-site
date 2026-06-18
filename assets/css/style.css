@@ -922,6 +922,8 @@ pre code .comment { color: var(--muted); }
    Roadmap
    ============================================================ */
 
+.roadmap-page { padding-top: 48px; }
+
 .roadmap-track {
   position: relative;
   margin: 48px 0 40px;
