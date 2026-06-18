@@ -4,57 +4,111 @@ title: "Roadmap"
 description: "What's coming to idx — planned versions from v0.9 to v1.0."
 ---
 
-<section class="section roadmap-page">
-  <div class="section-label">Roadmap</div>
-  <h1 class="section-title">What's next for idx</h1>
-  <p class="section-sub">Local-first, agent-native. Each version moves idx closer to being the primary retrieval layer underneath AI coding agents.</p>
+<div class="roadmap-page">
 
-  <div class="roadmap-track">
-    <div class="roadmap-track-line"></div>
-    <div class="roadmap-track-nodes">
-      {% for v in site.data.roadmap.versions %}
-      <div class="roadmap-node{% if v.status == 'released' %} roadmap-node--done{% elsif v.status == 'next' %} roadmap-node--next{% elsif v.status == 'milestone' %} roadmap-node--milestone{% endif %}">
-        <div class="roadmap-node-dot"></div>
-        <span class="roadmap-node-label">{{ v.version | remove: ".0" }}</span>
+  <div class="roadmap-hero">
+    <div class="section-label">Roadmap</div>
+    <h1 class="roadmap-hero-title">What's next for idx</h1>
+    <p class="roadmap-hero-sub">Each version closes a specific gap between what idx offers today and what AI coding agents actually need.</p>
+
+    <div class="roadmap-principles">
+      <div class="roadmap-principle">
+        <span class="roadmap-principle-name">Local-first, agent-native</span>
+        <span class="roadmap-principle-desc">Every feature serves idx as a retrieval layer under an agent — not just a developer CLI.</span>
       </div>
-      {% endfor %}
+      <div class="roadmap-principle">
+        <span class="roadmap-principle-name">Signal compounds over time</span>
+        <span class="roadmap-principle-desc">Read log, popularity boost, and related-file graph only work if agents consistently route through idx.</span>
+      </div>
+      <div class="roadmap-principle">
+        <span class="roadmap-principle-name">Precision over recall</span>
+        <span class="roadmap-principle-desc">Agents issue dozens of queries per session. Noisy results cost context budget. Every ranking improvement has a multiplier effect.</span>
+      </div>
     </div>
   </div>
 
-  <div class="roadmap-grid">
+  <div class="roadmap-timeline">
     {% for v in site.data.roadmap.versions %}
     {% unless v.status == 'released' %}
-    <div class="roadmap-card{% if v.status == 'next' %} roadmap-card--current{% elsif v.status == 'milestone' %} roadmap-card--milestone{% endif %}">
-      <div class="roadmap-card-meta">
-        <span class="roadmap-version">{{ v.version }}</span>
-        {% if v.status == 'next' %}<span class="roadmap-badge roadmap-badge--next">Up next</span>
-        {% elsif v.status == 'milestone' %}<span class="roadmap-badge roadmap-badge--milestone">Milestone</span>
-        {% else %}<span class="roadmap-badge roadmap-badge--planned">Planned</span>
+
+    {% if v.status == 'milestone' %}
+    <div class="roadmap-milestone-entry">
+      <div class="roadmap-milestone-header">
+        <div class="roadmap-milestone-left">
+          <span class="roadmap-version">{{ v.version }}</span>
+          <span class="roadmap-badge roadmap-badge--milestone">Milestone</span>
+        </div>
+        <h2 class="roadmap-milestone-title">{{ v.title }}</h2>
+      </div>
+      <p class="roadmap-milestone-theme">{{ v.theme }}</p>
+      {% if v.features %}
+      <div class="roadmap-chips">
+        {% for f in v.features %}
+        <span class="roadmap-chip roadmap-chip--milestone">
+          <span>{{ f.icon }}</span>
+          <span>{{ f.label }}</span>
+        </span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="roadmap-milestone-footer">
+        {% if v.note %}<p class="roadmap-milestone-note">{{ v.note }}</p>{% endif %}
+        {% if v.doc_url %}
+        <a href="{{ v.doc_url }}" class="roadmap-spec-link roadmap-spec-link--milestone" target="_blank" rel="noopener">
+          Full specification
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
         {% endif %}
       </div>
-      <h3 class="roadmap-card-title">{{ v.title }}</h3>
-      <p class="roadmap-card-theme">{{ v.theme }}</p>
-      {% if v.features %}
-      <ul class="roadmap-features">
-        {% for f in v.features %}
-        <li>
-          <span class="roadmap-feature-icon">{{ f.icon }}</span>
-          <span><strong>{{ f.label }}</strong> — {{ f.description }}</span>
-        </li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-      {% if v.note %}
-      <div class="roadmap-milestone-note">{{ v.note }}</div>
-      {% endif %}
-      {% if v.doc_url %}
-      <a href="{{ v.doc_url }}" class="roadmap-doc-link" target="_blank" rel="noopener">
-        Full spec
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      {% endif %}
     </div>
+
+    {% else %}
+
+    <div class="roadmap-entry{% if v.status == 'next' %} roadmap-entry--next{% endif %}">
+      <div class="roadmap-entry-aside">
+        <span class="roadmap-version">{{ v.version }}</span>
+        {% if v.status == 'next' %}
+        <span class="roadmap-badge roadmap-badge--next">Up next</span>
+        {% else %}
+        <span class="roadmap-badge roadmap-badge--planned">Planned</span>
+        {% endif %}
+      </div>
+
+      <div class="roadmap-entry-connector">
+        <div class="roadmap-connector-dot{% if v.status == 'next' %} roadmap-connector-dot--next{% endif %}"></div>
+        <div class="roadmap-connector-line"></div>
+      </div>
+
+      <div class="roadmap-entry-body">
+        <div class="roadmap-entry-meta-mobile">
+          <span class="roadmap-version">{{ v.version }}</span>
+          {% if v.status == 'next' %}<span class="roadmap-badge roadmap-badge--next">Up next</span>
+          {% else %}<span class="roadmap-badge roadmap-badge--planned">Planned</span>{% endif %}
+        </div>
+        <h3 class="roadmap-entry-title">{{ v.title }}</h3>
+        <p class="roadmap-entry-theme">{{ v.theme }}</p>
+        {% if v.features %}
+        <div class="roadmap-chips">
+          {% for f in v.features %}
+          <span class="roadmap-chip">
+            <span>{{ f.icon }}</span>
+            <span>{{ f.label }}</span>
+          </span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if v.doc_url %}
+        <a href="{{ v.doc_url }}" class="roadmap-spec-link" target="_blank" rel="noopener">
+          Full specification
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% endif %}
     {% endunless %}
     {% endfor %}
   </div>
-</section>
+
+</div>
