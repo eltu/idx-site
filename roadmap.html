@@ -31,62 +31,35 @@ description: "What's coming to idx — planned versions from v0.9 to v1.0."
     {% for v in site.data.roadmap.versions %}
     {% unless v.status == 'released' %}
 
-    {% if v.status == 'milestone' %}
-    <div class="roadmap-milestone-entry">
-      <div class="roadmap-milestone-header">
-        <div class="roadmap-milestone-left">
-          <span class="roadmap-version">{{ v.version }}</span>
-          <span class="roadmap-badge roadmap-badge--milestone">Milestone</span>
-        </div>
-        <h2 class="roadmap-milestone-title">{{ v.title }}</h2>
-      </div>
-      <p class="roadmap-milestone-theme">{{ v.theme }}</p>
-      {% if v.features %}
-      <div class="roadmap-chips">
-        {% for f in v.features %}
-        <span class="roadmap-chip roadmap-chip--milestone">
-          <span>{{ f.icon }}</span>
-          <span>{{ f.label }}</span>
-        </span>
-        {% endfor %}
-      </div>
-      {% endif %}
-      <div class="roadmap-milestone-footer">
-        {% if v.note %}<p class="roadmap-milestone-note">{{ v.note }}</p>{% endif %}
-        {% if v.doc_url %}
-        <a href="{{ v.doc_url }}" class="roadmap-spec-link roadmap-spec-link--milestone" target="_blank" rel="noopener">
-          Full specification
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        {% endif %}
-      </div>
-    </div>
+    <div class="roadmap-entry{% if v.status == 'next' %} roadmap-entry--next{% elsif v.status == 'milestone' %} roadmap-entry--milestone{% endif %}{% if forloop.last %} roadmap-entry--last{% endif %}">
 
-    {% else %}
-
-    <div class="roadmap-entry{% if v.status == 'next' %} roadmap-entry--next{% endif %}">
       <div class="roadmap-entry-aside">
         <span class="roadmap-version">{{ v.version }}</span>
-        {% if v.status == 'next' %}
-        <span class="roadmap-badge roadmap-badge--next">Up next</span>
-        {% else %}
-        <span class="roadmap-badge roadmap-badge--planned">Planned</span>
-        {% endif %}
+        <span class="roadmap-badge roadmap-badge--{{ v.status }}">
+          {%- if v.status == 'next' %}Up next
+          {%- elsif v.status == 'milestone' %}Milestone
+          {%- else %}Planned{%- endif %}
+        </span>
       </div>
 
       <div class="roadmap-entry-connector">
-        <div class="roadmap-connector-dot{% if v.status == 'next' %} roadmap-connector-dot--next{% endif %}"></div>
+        <div class="roadmap-connector-dot"></div>
         <div class="roadmap-connector-line"></div>
       </div>
 
       <div class="roadmap-entry-body">
         <div class="roadmap-entry-meta-mobile">
           <span class="roadmap-version">{{ v.version }}</span>
-          {% if v.status == 'next' %}<span class="roadmap-badge roadmap-badge--next">Up next</span>
-          {% else %}<span class="roadmap-badge roadmap-badge--planned">Planned</span>{% endif %}
+          <span class="roadmap-badge roadmap-badge--{{ v.status }}">
+            {%- if v.status == 'next' %}Up next
+            {%- elsif v.status == 'milestone' %}Milestone
+            {%- else %}Planned{%- endif %}
+          </span>
         </div>
+
         <h3 class="roadmap-entry-title">{{ v.title }}</h3>
         <p class="roadmap-entry-theme">{{ v.theme }}</p>
+
         {% if v.features %}
         <div class="roadmap-chips">
           {% for f in v.features %}
@@ -97,6 +70,11 @@ description: "What's coming to idx — planned versions from v0.9 to v1.0."
           {% endfor %}
         </div>
         {% endif %}
+
+        {% if v.note %}
+        <p class="roadmap-entry-note">{{ v.note }}</p>
+        {% endif %}
+
         {% if v.doc_url %}
         <a href="{{ v.doc_url }}" class="roadmap-spec-link" target="_blank" rel="noopener">
           Full specification
@@ -104,9 +82,9 @@ description: "What's coming to idx — planned versions from v0.9 to v1.0."
         </a>
         {% endif %}
       </div>
+
     </div>
 
-    {% endif %}
     {% endunless %}
     {% endfor %}
   </div>

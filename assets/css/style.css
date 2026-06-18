@@ -980,26 +980,24 @@ pre code .comment { color: var(--muted); }
 }
 
 /* Timeline */
-.roadmap-timeline {
-  position: relative;
-}
+.roadmap-timeline { position: relative; }
 
-/* Regular entry */
 .roadmap-entry {
   display: grid;
-  grid-template-columns: 120px 32px 1fr;
-  min-height: 48px;
+  grid-template-columns: 124px 36px 1fr;
 }
 
+/* Aside — version + badge, right-aligned */
 .roadmap-entry-aside {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 6px;
-  padding-top: 1px;
-  padding-right: 4px;
+  padding-top: 3px;
+  padding-right: 6px;
 }
 
+/* Connector — dot + line */
 .roadmap-entry-connector {
   display: flex;
   flex-direction: column;
@@ -1007,68 +1005,97 @@ pre code .comment { color: var(--muted); }
 }
 
 .roadmap-connector-dot {
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   border: 2px solid var(--border);
   background: var(--bg);
   flex-shrink: 0;
-  margin-top: 4px;
+  margin-top: 3px;
+  position: relative;
   z-index: 1;
-}
-
-.roadmap-connector-dot--next {
-  border-color: var(--primary);
-  background: var(--primary);
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
 }
 
 .roadmap-connector-line {
   width: 2px;
   flex: 1;
-  min-height: 48px;
+  min-height: 40px;
   background: var(--border);
   margin-top: 4px;
 }
 
+.roadmap-entry--last .roadmap-connector-line { display: none; }
+
+/* Body */
 .roadmap-entry-body {
-  padding: 0 0 56px 20px;
+  padding: 0 0 52px 20px;
 }
 
-.roadmap-entry--next .roadmap-entry-body {
-  padding-bottom: 64px;
+/* Status variants — dot */
+.roadmap-entry--next .roadmap-connector-dot {
+  border-color: var(--primary);
+  background: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.2);
 }
 
+.roadmap-entry--milestone .roadmap-connector-dot {
+  width: 18px;
+  height: 18px;
+  margin-top: 0;
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(251,191,36,0.18), 0 0 16px rgba(251,191,36,0.25);
+}
+
+/* Status variants — connector line */
+.roadmap-entry--milestone .roadmap-connector-line { display: none; }
+
+/* Status variants — body highlight for milestone */
+.roadmap-entry--milestone .roadmap-entry-body {
+  position: relative;
+  margin-left: -8px;
+  padding-left: 28px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-left: 2px solid rgba(251,191,36,0.3);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+/* Titles */
 .roadmap-entry-title {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #F8FAFC;
-  margin-bottom: 6px;
   line-height: 1.3;
+  margin-bottom: 6px;
 }
 
-.roadmap-entry--next .roadmap-entry-title {
-  font-size: 1.25rem;
+.roadmap-entry--next .roadmap-entry-title  { font-size: 1.2rem; }
+.roadmap-entry--milestone .roadmap-entry-title {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #FFFBEB;
 }
 
 .roadmap-entry-theme {
   font-size: 0.875rem;
   color: var(--muted);
   line-height: 1.55;
-  margin-bottom: 16px;
   max-width: 54ch;
+  margin-bottom: 14px;
 }
 
 /* Shared meta */
 .roadmap-version {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--muted);
   letter-spacing: 0.02em;
 }
 
 .roadmap-badge {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -1077,22 +1104,22 @@ pre code .comment { color: var(--muted); }
   white-space: nowrap;
 }
 
-.roadmap-badge--next    { background: rgba(99,102,241,0.15); color: var(--secondary); }
-.roadmap-badge--planned { background: var(--surface2); color: var(--muted); }
-.roadmap-badge--milestone { background: rgba(251,191,36,0.12); color: var(--accent); }
+.roadmap-badge--next      { background: rgba(99,102,241,0.15); color: var(--secondary); }
+.roadmap-badge--planned   { background: var(--surface2); color: var(--muted); }
+.roadmap-badge--milestone { background: rgba(251,191,36,0.14); color: var(--accent); }
 
 /* Chips */
 .roadmap-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 7px;
+  margin-bottom: 14px;
 }
 
 .roadmap-chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   font-size: 0.78rem;
   color: var(--path);
   background: var(--surface);
@@ -1102,15 +1129,9 @@ pre code .comment { color: var(--muted); }
   line-height: 1;
 }
 
-.roadmap-chip code {
-  background: none;
-  border: none;
-  padding: 0;
-  font-size: 0.78rem;
-  color: inherit;
-}
+.roadmap-chip code { background: none; border: none; padding: 0; font-size: 0.78rem; color: inherit; }
 
-.roadmap-chip--milestone {
+.roadmap-entry--milestone .roadmap-chip {
   background: rgba(251,191,36,0.06);
   border-color: rgba(251,191,36,0.2);
   color: #F8FAFC;
@@ -1129,83 +1150,24 @@ pre code .comment { color: var(--muted); }
 }
 
 .roadmap-spec-link:hover { color: var(--secondary); text-decoration: none; }
-.roadmap-spec-link--milestone { color: rgba(251,191,36,0.7); }
-.roadmap-spec-link--milestone:hover { color: var(--accent); }
+.roadmap-entry--milestone .roadmap-spec-link { color: rgba(251,191,36,0.6); }
+.roadmap-entry--milestone .roadmap-spec-link:hover { color: var(--accent); }
 
-/* Milestone entry */
-.roadmap-milestone-entry {
-  position: relative;
-  margin-top: 16px;
-  padding: 36px 40px;
-  border: 1px solid rgba(251,191,36,0.25);
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--surface) 60%, rgba(251,191,36,0.04) 100%);
-  overflow: hidden;
-}
-
-.roadmap-milestone-entry::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0.6;
-}
-
-.roadmap-milestone-header {
-  display: flex;
-  align-items: baseline;
-  gap: 20px;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
-}
-
-.roadmap-milestone-left {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-.roadmap-milestone-title {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-weight: 700;
-  color: #F8FAFC;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-.roadmap-milestone-theme {
-  font-size: 0.9rem;
+/* Note (milestone) */
+.roadmap-entry-note {
+  font-size: 0.78rem;
   color: var(--muted);
-  line-height: 1.55;
-  max-width: 60ch;
-  margin-bottom: 20px;
+  line-height: 1.6;
+  max-width: 52ch;
+  margin-bottom: 14px;
 }
 
-.roadmap-milestone-footer {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
+/* Mobile meta (hidden on desktop) */
 .roadmap-entry-meta-mobile {
   display: none;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
-}
-
-.roadmap-milestone-note {
-  font-size: 0.8rem;
-  color: var(--muted);
-  line-height: 1.6;
-  max-width: 52ch;
-  padding-left: 12px;
-  border-left: 2px solid rgba(251,191,36,0.3);
+  margin-bottom: 10px;
 }
 
 /* ============================================================
@@ -1218,8 +1180,8 @@ pre code .comment { color: var(--muted); }
   .editor-cards { grid-template-columns: 1fr; }
   .docs-content { padding: 32px 24px; }
   .ai-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .roadmap-principles { grid-template-columns: 1fr; }
   .roadmap-page { padding: 48px 24px 80px; }
+  .roadmap-principles { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -1286,12 +1248,17 @@ pre code .comment { color: var(--muted); }
   .btn-primary, .btn-secondary { justify-content: center; }
   .features-grid { grid-template-columns: 1fr; }
   .ai-stat-grid { grid-template-columns: 1fr; }
-  .roadmap-entry { grid-template-columns: 0 28px 1fr; }
+  /* Mobile timeline: hide aside, show meta inside body */
+  .roadmap-entry { grid-template-columns: 28px 1fr; }
   .roadmap-entry-aside { display: none; }
   .roadmap-entry-body { padding-left: 16px; }
   .roadmap-entry-meta-mobile { display: flex; }
-  .roadmap-milestone-entry { padding: 24px 20px; }
-  .roadmap-milestone-header { flex-direction: column; gap: 10px; }
+  /* Reset milestone left border offset on mobile */
+  .roadmap-entry--milestone .roadmap-entry-body {
+    margin-left: 0;
+    padding-left: 16px;
+    border-left: 2px solid rgba(251,191,36,0.3);
+  }
 }
 
 /* ===== Command Reference Table ===== */
