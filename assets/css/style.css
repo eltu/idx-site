@@ -1015,8 +1015,9 @@ pre code .comment { color: var(--muted); }
 /* Cards grid */
 .roadmap-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  align-items: start;
 }
 
 .roadmap-card {
@@ -1145,8 +1146,8 @@ pre code .comment { color: var(--muted); }
   .editor-cards { grid-template-columns: 1fr; }
   .docs-content { padding: 32px 24px; }
   .ai-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .roadmap-grid { grid-template-columns: 1fr; }
-  .roadmap-card--milestone { grid-column: 1; }
+  .roadmap-grid { grid-template-columns: repeat(2, 1fr); }
+  .roadmap-card--milestone { grid-column: 1 / -1; }
 }
 
 @media (max-width: 768px) {
@@ -1213,6 +1214,8 @@ pre code .comment { color: var(--muted); }
   .btn-primary, .btn-secondary { justify-content: center; }
   .features-grid { grid-template-columns: 1fr; }
   .ai-stat-grid { grid-template-columns: 1fr; }
+  .roadmap-grid { grid-template-columns: 1fr; }
+  .roadmap-card--milestone { grid-column: 1; }
 }
 
 /* ===== Command Reference Table ===== */
