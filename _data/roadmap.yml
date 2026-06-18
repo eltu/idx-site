@@ -8,6 +8,7 @@ versions:
     status: next
     title: "AI Integration Layer"
     theme: "Close the gap between what the CLI offers and what agents actually use."
+    doc_url: "https://github.com/eltu/idx/blob/main/docs/roadmap/v0.9.0.md"
     features:
       - icon: "🔧"
         label: "Skill sync"
@@ -23,6 +24,7 @@ versions:
     status: planned
     title: "Git-aware Primitives"
     theme: "Make idx conscious of what the developer is actively working on."
+    doc_url: "https://github.com/eltu/idx/blob/main/docs/roadmap/v0.10.0.md"
     features:
       - icon: "⎇"
         label: "<code>--since &lt;ref&gt;</code>"
@@ -38,6 +40,7 @@ versions:
     status: planned
     title: "Agent-optimized Output"
     theme: "Return structured, precise, context-budget-aware results instead of file paths."
+    doc_url: "https://github.com/eltu/idx/blob/main/docs/roadmap/v0.11.0.md"
     features:
       - icon: "🌳"
         label: "Symbol-aware search"
@@ -53,6 +56,7 @@ versions:
     status: milestone
     title: "Multi-agent: Worktree Isolation & Hybrid MCP Search"
     theme: "Enable parallel agents on the same repository without index collisions, at any codebase scale."
+    doc_url: "https://github.com/eltu/idx/blob/main/docs/roadmap/v1.0.0.md"
     note: "The branch delta index and the remote MCP baseline share the same git-diff primitive — the local index stays small regardless of monorepo size."
     features:
       - icon: "🗂️"
