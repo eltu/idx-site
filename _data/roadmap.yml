@@ -1,0 +1,66 @@
+versions:
+  - version: "v0.8.0"
+    status: released
+    title: "Stable CLI Foundation"
+    theme: "BM25 full-text index, background agent, path & extension filters."
+
+  - version: "v0.9.0"
+    status: next
+    title: "AI Integration Layer"
+    theme: "Close the gap between what the CLI offers and what agents actually use."
+    features:
+      - icon: "🔧"
+        label: "Skill sync"
+        description: "Replace stale flags and remove extinct commands from the agent reference sheet."
+      - icon: "📖"
+        label: "<code>idx read</code> as canonical reader"
+        description: "Every file read routes through idx, populating the popularity signal."
+      - icon: "🔍"
+        label: "Drift detection in CI"
+        description: "Automated check that the skill never references flags the CLI no longer accepts."
+
+  - version: "v0.10.0"
+    status: planned
+    title: "Git-aware Primitives"
+    theme: "Make idx conscious of what the developer is actively working on."
+    features:
+      - icon: "⎇"
+        label: "<code>--since &lt;ref&gt;</code>"
+        description: "Scope any search to files that changed since a given Git ref or branch."
+      - icon: "🔗"
+        label: "<code>idx related &lt;file&gt;</code>"
+        description: "Surface co-read and term-overlap neighbors for the file being edited."
+      - icon: "📊"
+        label: "Read log as a signal"
+        description: "Co-read affinity becomes a first-class retrieval primitive."
+
+  - version: "v0.11.0"
+    status: planned
+    title: "Agent-optimized Output"
+    theme: "Return structured, precise, context-budget-aware results instead of file paths."
+    features:
+      - icon: "🌳"
+        label: "Symbol-aware search"
+        description: "tree-sitter index separates function definitions from call sites; ranks declarations first."
+      - icon: "✂️"
+        label: "<code>--chunk</code>"
+        description: "Return the enclosing function or struct body instead of a raw file path."
+      - icon: "🎯"
+        label: "<code>idx context --budget N</code>"
+        description: "Assemble a token-bounded context package ready for direct injection."
+
+  - version: "v1.0.0"
+    status: milestone
+    title: "Multi-agent: Worktree Isolation & Hybrid MCP Search"
+    theme: "Enable parallel agents on the same repository without index collisions, at any codebase scale."
+    note: "The branch delta index and the remote MCP baseline share the same git-diff primitive — the local index stays small regardless of monorepo size."
+    features:
+      - icon: "🗂️"
+        label: "Worktree-native isolation"
+        description: "Each Git worktree gets its own independent index, agent process, and socket."
+      - icon: "☁️"
+        label: "Hybrid MCP search"
+        description: "Local working-set index fans out to a remote baseline; local changes always shadow remote results."
+      - icon: "📋"
+        label: "<code>idx worktree list</code>"
+        description: "Single command to inspect agent health across every active branch."
