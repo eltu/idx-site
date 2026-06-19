@@ -948,49 +948,6 @@ pre code .comment { color: var(--muted); }
   margin-bottom: 40px;
 }
 
-.roadmap-principles {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border-top: 1px solid var(--border);
-}
-
-.roadmap-principle {
-  display: flex;
-  align-items: baseline;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.roadmap-principle-num {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--muted);
-  letter-spacing: 0.06em;
-  flex-shrink: 0;
-  width: 24px;
-}
-
-.roadmap-principle-content {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.roadmap-principle-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #F8FAFC;
-  white-space: nowrap;
-}
-
-.roadmap-principle-desc {
-  font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.5;
-}
 
 /* Timeline */
 .roadmap-timeline { position: relative; }
@@ -1188,7 +1145,6 @@ pre code .comment { color: var(--muted); }
   .docs-content { padding: 32px 24px; }
   .ai-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .roadmap-page { padding: 48px 24px 80px; }
-  .roadmap-principle-content { flex-direction: column; gap: 4px; }
 }
 
 @media (max-width: 768px) {
