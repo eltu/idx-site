@@ -1005,13 +1005,13 @@ pre code .comment { color: var(--muted); }
 }
 
 .roadmap-connector-dot {
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: 2px solid var(--border);
   background: var(--bg);
   flex-shrink: 0;
-  margin-top: 3px;
+  margin-top: 4px;
   position: relative;
   z-index: 1;
 }
@@ -1021,7 +1021,7 @@ pre code .comment { color: var(--muted); }
   flex: 1;
   min-height: 40px;
   background: var(--border);
-  margin-top: 4px;
+  margin-top: 0;
 }
 
 .roadmap-entry--last .roadmap-connector-line { display: none; }
@@ -1039,26 +1039,20 @@ pre code .comment { color: var(--muted); }
 }
 
 .roadmap-entry--milestone .roadmap-connector-dot {
-  width: 18px;
-  height: 18px;
-  margin-top: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
   border-color: var(--accent);
   background: var(--accent);
-  box-shadow: 0 0 0 5px rgba(251,191,36,0.18), 0 0 16px rgba(251,191,36,0.25);
+  box-shadow: 0 0 0 4px rgba(251,191,36,0.18), 0 0 14px rgba(251,191,36,0.22);
 }
 
-/* Status variants — connector line */
+/* Status variants — connector line: milestone has no line below */
 .roadmap-entry--milestone .roadmap-connector-line { display: none; }
 
-/* Status variants — body highlight for milestone */
-.roadmap-entry--milestone .roadmap-entry-body {
-  position: relative;
-  margin-left: -8px;
-  padding-left: 28px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-left: 2px solid rgba(251,191,36,0.3);
-  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+/* Body */
+.roadmap-entry-body {
+  padding: 0 0 52px 20px;
 }
 
 /* Titles */
@@ -1253,12 +1247,6 @@ pre code .comment { color: var(--muted); }
   .roadmap-entry-aside { display: none; }
   .roadmap-entry-body { padding-left: 16px; }
   .roadmap-entry-meta-mobile { display: flex; }
-  /* Reset milestone left border offset on mobile */
-  .roadmap-entry--milestone .roadmap-entry-body {
-    margin-left: 0;
-    padding-left: 16px;
-    border-left: 2px solid rgba(251,191,36,0.3);
-  }
 }
 
 /* ===== Command Reference Table ===== */
