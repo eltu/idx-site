@@ -999,6 +999,68 @@ pre code .comment { color: var(--muted); }
   line-height: 1.65;
 }
 
+/* Section headings (shared between "Already shipped" and "What's next") */
+.roadmap-section-head { margin-bottom: 28px; }
+.roadmap-section-head--upcoming { margin-top: 8px; }
+
+.roadmap-section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #F8FAFC;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.roadmap-section-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 56ch;
+  line-height: 1.6;
+}
+
+/* Delivered — grid of shipped-version cards */
+.roadmap-delivered { margin-bottom: 72px; }
+
+.roadmap-delivered-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.roadmap-delivered-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  background: var(--surface);
+}
+
+.roadmap-delivered-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.roadmap-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(52,211,153,0.15);
+  color: #34D399;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.roadmap-delivered-date {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-left: auto;
+}
+
 /* Timeline */
 .roadmap-timeline { position: relative; }
 
@@ -1121,6 +1183,7 @@ pre code .comment { color: var(--muted); }
 .roadmap-badge--next      { background: rgba(99,102,241,0.15); color: var(--secondary); }
 .roadmap-badge--planned   { background: var(--surface2); color: var(--muted); }
 .roadmap-badge--milestone { background: rgba(251,191,36,0.14); color: var(--accent); }
+.roadmap-badge--released  { background: rgba(52,211,153,0.14); color: #34D399; }
 
 /* Chips */
 .roadmap-chips {
@@ -1195,6 +1258,7 @@ pre code .comment { color: var(--muted); }
   .docs-content { padding: 32px 24px; }
   .ai-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .roadmap-page { padding: 48px 24px 80px; }
+  .roadmap-delivered-grid { grid-template-columns: 1fr; }
   .roadmap-principles { grid-template-columns: 1fr; }
   .roadmap-principle,
   .roadmap-principle:not(:first-child) { padding: 28px 0; border-right: none; border-bottom: 1px solid var(--border); }

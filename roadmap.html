@@ -1,7 +1,7 @@
 ---
 layout: landing
 title: "Roadmap"
-description: "What's coming to idx — planned versions from v0.9 to v1.0."
+description: "What idx has shipped so far, and what's coming next — from v0.8 to v1.0."
 ---
 
 <div class="roadmap-page">
@@ -29,6 +29,54 @@ description: "What's coming to idx — planned versions from v0.9 to v1.0."
       </div>
     </div>
 
+  </div>
+
+  {% assign released = site.data.roadmap.versions | where: "status", "released" %}
+  {% if released.size > 0 %}
+  <div class="roadmap-delivered">
+    <div class="roadmap-section-head">
+      <h2 class="roadmap-section-title">Already shipped</h2>
+      <p class="roadmap-section-sub">{{ released.size }} releases so far — each one closing a specific gap between what idx offered and what AI agents actually needed.</p>
+    </div>
+
+    <div class="roadmap-delivered-grid">
+      {% for v in released %}
+      <div class="roadmap-delivered-card">
+        <div class="roadmap-delivered-head">
+          <span class="roadmap-check">✓</span>
+          <span class="roadmap-version">{{ v.version }}</span>
+          <span class="roadmap-badge roadmap-badge--released">Released</span>
+          {% if v.date %}<span class="roadmap-delivered-date">{{ v.date }}</span>{% endif %}
+        </div>
+
+        <h3 class="roadmap-entry-title">{{ v.title }}</h3>
+        <p class="roadmap-entry-theme">{{ v.theme }}</p>
+
+        {% if v.features %}
+        <div class="roadmap-chips">
+          {% for f in v.features %}
+          <span class="roadmap-chip">
+            <span>{{ f.icon }}</span>
+            <span>{{ f.label }}</span>
+          </span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if v.doc_url %}
+        <a href="{{ v.doc_url }}" class="roadmap-spec-link" target="_blank" rel="noopener">
+          Release notes
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="roadmap-section-head roadmap-section-head--upcoming">
+    <h2 class="roadmap-section-title">What's next</h2>
   </div>
 
   <div class="roadmap-timeline">
